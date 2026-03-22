@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vanshika Gifts — Creative. Custom. Crafts.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5EFE0;--cream-light:#FAF7F0;--cream-dark:#EDE3CC;
+  --olive:#4A6741;--olive-l:#6B8F62;--olive-d:#344B2E;
+  --amber:#C8902A;--amber-l:#E8B050;--amber-d:#9E6E18;
+  --brown:#7B4A2D;--brown-d:#5A3320;
+  --crimson:#A8243A;--text:#3D2B1A;--muted:#7A6552;
+  --r:8px;--r2:16px;--r3:24px;--r4:36px;
+  --sh:0 4px 24px rgba(61,43,26,.10);--sh2:0 12px 48px rgba(61,43,26,.16)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;overflow-x:hidden;min-height:100vh}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
+h1{font-size:clamp(2.2rem,5vw,3.8rem)}
+h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+p{color:var(--muted);line-height:1.75}
+a{color:var(--amber);text-decoration:none}
+button{cursor:pointer;font-family:'Nunito',sans-serif}
+input,select,textarea{font-family:'Nunito',sans-serif;outline:none}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream-dark)}
+::-webkit-scrollbar-thumb{background:var(--amber);border-radius:3px}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(74,103,65,.4)}50%{box-shadow:0 0 0 8px rgba(74,103,65,0)}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(245,239,224,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,144,42,.2);transition:box-shadow .3s}
+#nav.sc{box-shadow:var(--sh)}
+.nav-brand{display:flex;align-items:center;gap:10px;cursor:pointer;background:none;border:none}
+.nav-brand-logo{width:44px;height:44px;border-radius:50%;background:var(--cream-dark);border:2px solid rgba(200,144,42,.35);display:flex;align-items:center;justify-content:center;font-size:1.4rem;overflow:hidden;flex-shrink:0}
+.nav-brand-logo img{width:100%;height:100%;object-fit:cover}
+.nav-brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--brown);line-height:1.1}
+.nav-brand-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.13em;color:var(--amber)}
+.nav-links{display:flex;align-items:center;gap:.2rem}
+.nav-link{padding:.45rem .9rem;border-radius:50px;font-size:.88rem;font-weight:600;color:var(--muted);background:none;border:none;transition:all .2s;cursor:pointer}
+.nav-link:hover,.nav-link.on{color:var(--olive);background:rgba(74,103,65,.1)}
+.nav-admin{padding:.42rem 1rem;border-radius:50px;background:var(--amber);color:#fff;font-size:.8rem;font-weight:700;border:none;margin-left:.4rem;transition:all .2s;cursor:pointer}
+.nav-admin:hover{background:var(--amber-d);transform:translateY(-1px)}
+.nav-ham{display:none;background:none;border:none;font-size:1.5rem;color:var(--brown);cursor:pointer}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream-light);padding:1.2rem 5vw;border-bottom:1px solid rgba(200,144,42,.2);flex-direction:column;gap:.4rem;z-index:899;animation:slideDown .2s ease}
+.mob-menu.open{display:flex}
+
+/* PAGE */
+#page{padding-top:68px;min-height:100vh}
+
+/* Marquee */
+.marq-bar{background:var(--olive);overflow:hidden;white-space:nowrap;padding:.55rem 0}
+.marq-inner{display:inline-block;animation:marq 28s linear infinite;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cream-light)}
+.marq-inner span{margin:0 1.8rem}
+.marq-dot{color:var(--amber-l)!important}
+
+/* HERO */
+.hero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;padding:4rem 5vw;max-width:1180px;margin:0 auto}
+.hero-ey{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;color:var(--amber);font-weight:700;background:rgba(200,144,42,.1);padding:5px 14px;border-radius:50px;margin-bottom:1.2rem}
+.hero h1{color:var(--brown-d);margin-bottom:.5rem}
+.hero h1 em{font-style:italic;color:var(--crimson);font-family:'Playfair Display',serif}
+.hero-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;color:var(--olive);margin-bottom:1.2rem}
+.hero-sub{font-size:1.02rem;max-width:430px;margin-bottom:2rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.hs-num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--brown-d);line-height:1}
+.hs-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:2px}
+.hero-art{display:flex;justify-content:center;align-items:center}
+.hero-img-wrap{position:relative;width:min(380px,80vw)}
+.hero-img-wrap .logo-circle{width:100%;aspect-ratio:1;border-radius:50%;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;font-size:6rem;animation:float 7s ease-in-out infinite;box-shadow:0 20px 60px rgba(61,43,26,.15);overflow:hidden}
+.hero-img-wrap .logo-circle img{width:100%;height:100%;object-fit:cover}
+.ring1{position:absolute;inset:-14px;border-radius:50%;border:2px dashed rgba(200,144,42,.35);animation:spin 40s linear infinite;pointer-events:none}
+.ring2{position:absolute;inset:-28px;border-radius:50%;border:1px dotted rgba(74,103,65,.2);animation:spin 60s linear infinite reverse;pointer-events:none}
+.hero-badge{position:absolute;bottom:8%;right:-4%;background:#fff;border-radius:var(--r2);padding:.8rem 1.1rem;box-shadow:var(--sh2);border:1px solid rgba(200,144,42,.2);animation:fadeUp 1s .8s both;text-align:center}
+.hb-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--amber-d)}
+.hb-txt{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:.72rem 1.8rem;border-radius:50px;font-size:.9rem;font-weight:700;border:none;transition:all .22s;cursor:pointer;letter-spacing:.01em;text-decoration:none}
+.btn-p{background:var(--olive);color:var(--cream-light)}
+.btn-p:hover{background:var(--olive-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,103,65,.3)}
+.btn-o{background:transparent;color:var(--brown);border:2px solid var(--amber)}
+.btn-o:hover{background:var(--amber);color:#fff;transform:translateY(-2px)}
+.btn-a{background:var(--amber);color:#fff}
+.btn-a:hover{background:var(--amber-d);transform:translateY(-2px)}
+.btn-s{padding:.45rem 1rem;font-size:.8rem}
+.btn-d{background:#dc3545;color:#fff}
+.btn-d:hover{background:#b02a37}
+
+/* SECTION */
+.sec{padding:5rem 5vw;max-width:1180px;margin:0 auto}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem}
+.sec-title{text-align:center;color:var(--brown-d);margin-bottom:.5rem}
+.sec-sub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:1rem}
+.leaf{text-align:center;color:var(--olive-l);font-size:1.1rem;letter-spacing:.5em;margin-bottom:2rem}
+
+/* Features strip */
+.feat-strip{background:var(--cream-dark);border-top:1px solid rgba(200,144,42,.18);border-bottom:1px solid rgba(200,144,42,.18)}
+.feat-inner{max-width:1180px;margin:0 auto;padding:2.5rem 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.5rem;text-align:center}
+.fi{cursor:default}.fi-icon{font-size:2rem;margin-bottom:.5rem}
+.fi-ttl{font-size:.9rem;font-weight:700;color:var(--brown);margin-bottom:.2rem}
+.fi-dsc{font-size:.78rem;color:var(--muted)}
+
+/* FILTER BAR */
+.fbar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.fbtn{padding:.42rem 1.1rem;border-radius:50px;border:2px solid var(--cream-dark);background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.84rem;font-weight:600;cursor:pointer;transition:all .18s}
+.fbtn:hover,.fbtn.on{background:var(--olive);border-color:var(--olive);color:var(--cream-light)}
+
+/* PRODUCT CARDS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.8rem}
+.pcard{background:#fff;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh);transition:all .25s;cursor:pointer}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.pthumb{height:210px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.pbadge{position:absolute;top:13px;right:13px;padding:3px 11px;border-radius:20px;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.pb-hot{background:var(--crimson);color:#fff}
+.pb-new{background:var(--olive);color:var(--cream-light)}
+.pb-sale{background:var(--amber);color:#fff}
+.pbody{padding:1.3rem}
+.ptag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--olive);font-weight:700;background:rgba(74,103,65,.1);border-radius:20px;padding:3px 10px;margin-bottom:.6rem}
+.pname{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--brown-d);margin-bottom:.4rem}
+.pdesc{font-size:.84rem;color:var(--muted);margin-bottom:.8rem;line-height:1.5}
+.pftr{display:flex;align-items:center;justify-content:space-between}
+.pprice{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--amber-d);font-weight:700}
+.pcta{font-size:.78rem;color:var(--olive);font-weight:700;transition:letter-spacing .2s}
+.pcard:hover .pcta{letter-spacing:.04em}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem}
+.tcard{background:#fff;border-radius:var(--r3);padding:2rem;box-shadow:var(--sh);border-bottom:3px solid var(--amber);position:relative}
+.tq{position:absolute;top:1.2rem;right:1.3rem;font-size:2.8rem;color:rgba(200,144,42,.12);font-family:'Playfair Display',serif;line-height:1}
+.tstars{color:var(--amber);font-size:.95rem;margin-bottom:.8rem;letter-spacing:1px}
+.ttext{font-size:.93rem;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:1rem}
+.tauthor{font-size:.82rem;font-weight:700;color:var(--olive)}
+.tloc{font-size:.74rem;color:var(--muted);margin-top:1px}
+
+/* CTA BAND */
+.cta-band{background:var(--olive);border-radius:var(--r4);padding:5rem 2rem;text-align:center}
+.cta-band h2{color:var(--cream-light);margin-bottom:.7rem}
+.cta-band p{color:rgba(245,239,224,.72);margin-bottom:2rem;font-size:1.02rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:5rem;align-items:start}
+.aimg-wrap{position:relative}
+.aimg-wrap .logo-big{width:100%;border-radius:var(--r4);box-shadow:var(--sh2);background:var(--cream-dark);aspect-ratio:.85;display:flex;align-items:center;justify-content:center;font-size:8rem;overflow:hidden}
+.aimg-wrap .logo-big img{width:100%;height:100%;object-fit:cover}
+.aimg-badge{position:absolute;bottom:-18px;right:-18px;background:var(--olive);color:var(--cream-light);font-family:'Playfair Display',serif;font-style:italic;padding:1.1rem 1.4rem;border-radius:var(--r2);box-shadow:var(--sh2);text-align:center;max-width:140px}
+.aimg-badge strong{display:block;font-size:1.5rem;font-style:normal}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.vcard{background:var(--cream-dark);border-radius:var(--r2);padding:1.2rem;border-left:3px solid var(--amber)}
+.vcard h4{color:var(--brown);font-size:.93rem;margin-bottom:.35rem;font-family:'Nunito',sans-serif;font-weight:700}
+.vcard p{font-size:.82rem;color:var(--muted);margin:0}
+.pgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.4rem}
+.step-card{background:#fff;border-radius:var(--r2);padding:1.8rem 1.4rem;text-align:center;box-shadow:var(--sh);border-top:3px solid var(--olive)}
+.snum{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:var(--olive);color:var(--cream-light);font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.9rem}
+.step-card h4{color:var(--brown);margin-bottom:.35rem;font-size:1rem}
+.step-card p{font-size:.84rem;color:var(--muted);margin:0}
+
+/* CONTACT */
+.cgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+.clist{list-style:none;margin:1.8rem 0;display:flex;flex-direction:column;gap:1.2rem}
+.citem{display:flex;align-items:flex-start;gap:.9rem}
+.cicon{width:38px;height:38px;border-radius:50%;background:rgba(74,103,65,.12);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.clbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--olive);font-weight:700;margin-bottom:2px}
+.cval{font-size:.93rem;color:var(--text)}
+.avail{display:inline-flex;align-items:center;gap:7px;background:rgba(74,103,65,.1);color:var(--olive);padding:5px 13px;border-radius:50px;font-size:.78rem;font-weight:700;margin-top:.8rem}
+.adot{width:8px;height:8px;border-radius:50%;background:var(--olive);animation:pulse2 2s infinite}
+.srow{display:flex;gap:.5rem;margin-top:1.4rem;flex-wrap:wrap}
+.spill{font-size:.78rem;font-weight:700;border:2px solid var(--cream-dark);border-radius:50px;padding:4px 13px;color:var(--brown);background:transparent;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.spill:hover{border-color:var(--olive);color:var(--olive)}
+.bulk-box{background:var(--cream-dark);border-radius:var(--r2);padding:1.4rem;margin-top:1.8rem;border-left:3px solid var(--amber)}
+.bulk-box h4{color:var(--brown);margin-bottom:.4rem;font-family:'Nunito',sans-serif;font-size:.93rem;font-weight:700}
+.bulk-box p{font-size:.84rem;color:var(--muted);margin:0}
+.fcard{background:#fff;border-radius:var(--r4);padding:2.5rem;box-shadow:var(--sh)}
+.fg{margin-bottom:1.3rem}
+.flbl{display:block;font-size:.83rem;font-weight:700;color:var(--brown);margin-bottom:.45rem}
+.fin{width:100%;padding:.7rem .95rem;border:1.5px solid var(--cream-dark);border-radius:var(--r);background:var(--cream);font-family:'Nunito',sans-serif;font-size:.93rem;color:var(--text);transition:border-color .2s;outline:none}
+.fin:focus{border-color:var(--olive);background:#fff}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.success-wrap{text-align:center;padding:2rem}
+.suc-icon{width:60px;height:60px;border-radius:50%;background:rgba(74,103,65,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.7rem;color:var(--olive)}
+
+/* FOOTER */
+footer{background:var(--brown-d);padding:4rem 5vw 2rem}
+.foot-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.fn{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--cream-light);font-weight:700;margin-bottom:.2rem}
+.ft{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--amber-l);margin-bottom:.9rem}
+.fd{font-size:.84rem;color:rgba(245,239,224,.55);margin-bottom:.9rem;line-height:1.7}
+.fh{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--amber-l);font-weight:700;margin-bottom:.9rem}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.flinks li button,.flinks li a{font-size:.87rem;color:rgba(245,239,224,.6);background:none;border:none;cursor:pointer;font-family:'Nunito',sans-serif;text-align:left;padding:0;text-decoration:none;transition:color .2s}
+.flinks li button:hover,.flinks li a:hover{color:var(--cream-light)}
+.fbot{max-width:1180px;margin:0 auto;padding-top:1.4rem;border-top:1px solid rgba(245,239,224,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.78rem;color:rgba(245,239,224,.5)}
+.fbot a{color:var(--amber-l);text-decoration:none}
+
+/* ADMIN */
+.ov{position:fixed;inset:0;background:rgba(20,12,5,.65);z-index:9000;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(5px)}
+.amod{background:var(--cream-light);border-radius:var(--r4);width:100%;max-width:920px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(61,43,26,.35);animation:scaleIn .3s ease}
+.amod-hdr{padding:1.4rem 2rem;background:var(--brown-d);color:var(--cream-light);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.amod-hdr h2{font-size:1.25rem;color:var(--cream-light)}
+.amod-close{background:rgba(245,239,224,.15);border:none;color:var(--cream-light);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.amod-close:hover{background:rgba(245,239,224,.28)}
+.amod-body{display:grid;grid-template-columns:190px 1fr;flex:1;overflow:hidden}
+.aside{background:var(--cream-dark);padding:1.3rem .9rem;display:flex;flex-direction:column;gap:.25rem;border-right:1px solid rgba(200,144,42,.18);overflow-y:auto}
+.anav{display:flex;align-items:center;gap:8px;padding:.6rem .9rem;border-radius:var(--r);border:none;background:none;font-family:'Nunito',sans-serif;font-size:.87rem;font-weight:600;color:var(--muted);cursor:pointer;width:100%;text-align:left;transition:all .18s}
+.anav:hover{background:rgba(74,103,65,.08);color:var(--olive)}
+.anav.on{background:var(--olive);color:var(--cream-light)}
+.anav-logout{color:var(--crimson)!important;margin-top:auto;padding-top:.8rem;border-top:1px solid rgba(200,144,42,.2)}
+.acontent{overflow-y:auto;padding:1.8rem}
+.asec-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--brown-d);margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:2px solid var(--cream-dark)}
+.atable{width:100%;border-collapse:collapse;margin-bottom:1.4rem;font-size:.86rem}
+.atable th{text-align:left;padding:.65rem .9rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--cream-dark);border-bottom:1px solid rgba(200,144,42,.2)}
+.atable td{padding:.85rem .9rem;border-bottom:1px solid rgba(200,144,42,.1);vertical-align:middle}
+.atable tr:hover td{background:rgba(245,239,224,.6)}
+.aform{display:flex;flex-direction:column;gap:1.1rem}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.ain{width:100%;padding:.62rem .88rem;border:1.5px solid var(--cream-dark);border-radius:var(--r);background:#fff;font-family:'Nunito',sans-serif;font-size:.88rem;color:var(--text);outline:none;transition:border-color .2s}
+.ain:focus{border-color:var(--olive)}
+.albl{font-size:.78rem;font-weight:700;color:var(--brown);margin-bottom:.38rem;display:block}
+.agroup{display:flex;flex-direction:column}
+.acard{background:#fff;border-radius:var(--r2);padding:1.6rem;margin-bottom:1.3rem;border:1px solid rgba(200,144,42,.2)}
+.acard-title{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--brown-d);margin-bottom:1.1rem}
+.cbtn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;margin-top:.4rem}
+.cbtn{width:100%;aspect-ratio:1;border-radius:var(--r);cursor:pointer;border:3px solid transparent;transition:all .18s}
+.cbtn.sel{border-color:var(--olive);transform:scale(1.1)}
+.astats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin-bottom:1.8rem}
+.astat{background:#fff;border-radius:var(--r2);padding:1.2rem;text-align:center;border-bottom:3px solid var(--amber);box-shadow:var(--sh)}
+.astat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--amber-d)}
+.astat-l{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px}
+.acts{display:flex;gap:.4rem}
+.toggle-btn{padding:3px 11px;border-radius:20px;border:none;cursor:pointer;font-size:.72rem;font-weight:700;font-family:'Nunito',sans-serif}
+.tg-on{background:rgba(74,103,65,.12);color:var(--olive)}
+.tg-off{background:rgba(200,144,42,.1);color:var(--amber-d)}
+.tag-pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;font-family:'Nunito',sans-serif}
+.tp-hamper{background:rgba(200,144,42,.12);color:var(--amber-d)}
+.tp-wedding{background:rgba(168,36,58,.1);color:var(--crimson)}
+.tp-festival{background:rgba(74,103,65,.1);color:var(--olive)}
+.tp-floral{background:rgba(191,168,212,.2);color:#7B5EA7}
+.tp-birthday{background:rgba(168,196,212,.2);color:#2E6B8A}
+.tp-corporate{background:rgba(61,43,26,.1);color:var(--brown-d)}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.empty-i{font-size:2.8rem;margin-bottom:.8rem}
+.login-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 2rem;text-align:center;height:100%}
+.login-wrap img{width:76px;height:76px;border-radius:50%;object-fit:cover;margin-bottom:1.3rem;border:3px solid rgba(200,144,42,.4)}
+.login-logo-fallback{width:76px;height:76px;border-radius:50%;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:2.5rem;border:3px solid rgba(200,144,42,.4)}
+.login-wrap h3{font-size:1.25rem;color:var(--brown-d);margin-bottom:.4rem}
+.login-form{width:100%;max-width:300px;margin-top:1.8rem;display:flex;flex-direction:column;gap:.9rem}
+.err{color:var(--crimson);font-size:.78rem;margin-top:3px}
+.toast{position:fixed;bottom:1.8rem;right:1.8rem;background:var(--olive);color:var(--cream-light);padding:.75rem 1.4rem;border-radius:50px;font-size:.87rem;font-weight:700;z-index:9999;animation:toastIn .3s ease;box-shadow:var(--sh2);pointer-events:none}
+.page-hero{text-align:center;padding:5rem 5vw 3rem;max-width:680px;margin:0 auto}
+.page-hero h1{color:var(--brown-d)}
+.page-hero p{font-size:1.02rem;margin-top:.7rem}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.7rem}
+.gcard{background:#fff;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh);transition:all .25s}
+.gcard:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+.gthumb{height:195px;display:flex;align-items:center;justify-content:center;font-size:4.5rem}
+.gbody{padding:1.3rem}
+.gmeta{display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem}
+.gyear{font-size:.72rem;color:var(--muted)}
+.gname{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--brown-d);margin-bottom:.35rem}
+.gdesc{font-size:.84rem;color:var(--muted);margin:0 0 .6rem}
+.gprice{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--amber-d);font-weight:700}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding-top:2.5rem;gap:2rem}
+  .hero-sub,.hero-cta{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-art{order:-1}
+  .hero-img-wrap{max-width:220px;margin:0 auto}
+  .about-grid,.cgrid{grid-template-columns:1fr}
+  .aimg-badge{right:0;bottom:-14px}
+  .vgrid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr;gap:2rem}
+  .frow{grid-template-columns:1fr}
+  .amod-body{grid-template-columns:1fr}
+  .aside{flex-direction:row;overflow-x:auto;padding:.7rem;border-right:none;border-bottom:1px solid rgba(200,144,42,.18)}
+  .anav{white-space:nowrap;padding:.5rem .8rem}
+  .agrid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="nav-brand" onclick="showPage('home')">
+    <div class="nav-brand-logo" id="nav-logo-wrap">
+      <img src="logo.jpg" alt="Logo" onerror="this.parentElement.innerHTML='🎁'">
+    </div>
+    <div>
+      <div class="nav-brand-name" id="nav-bname">Vanshika Gifts</div>
+      <div class="nav-brand-tag" id="nav-btag">Creative · Custom · Crafts</div>
+    </div>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-link on" id="nl-home" onclick="showPage('home')">Home</button>
+    <button class="nav-link" id="nl-about" onclick="showPage('about')">About</button>
+    <button class="nav-link" id="nl-gallery" onclick="showPage('gallery')">Gallery</button>
+    <button class="nav-link" id="nl-contact" onclick="showPage('contact')">Contact</button>
+    <button class="nav-admin" onclick="openAdmin()">⚙ Admin</button>
+  </div>
+  <button class="nav-ham" onclick="toggleMob()">☰</button>
+</nav>
+<div class="mob-menu" id="mob-menu">
+  <button class="nav-link" onclick="showPage('home');closeMob()">Home</button>
+  <button class="nav-link" onclick="showPage('about');closeMob()">About</button>
+  <button class="nav-link" onclick="showPage('gallery');closeMob()">Gallery</button>
+  <button class="nav-link" onclick="showPage('contact');closeMob()">Contact</button>
+  <button class="nav-admin" style="text-align:center" onclick="openAdmin();closeMob()">⚙ Admin Panel</button>
+</div>
+
+<!-- PAGE -->
+<div id="page">
+
+  <!-- HOME -->
+  <div id="pg-home">
+    <div class="marq-bar">
+      <div class="marq-inner">
+        <span>🎁 Custom Gift Baskets</span><span class="marq-dot">✦</span><span>Handcrafted with Love</span><span class="marq-dot">✦</span><span>Personalised for Every Occasion</span><span class="marq-dot">✦</span><span>Weddings · Birthdays · Festivals</span><span class="marq-dot">✦</span><span>🌿 Natural Materials</span><span class="marq-dot">✦</span><span>Pan-India Delivery</span><span class="marq-dot">✦</span>
+        <span>🎁 Custom Gift Baskets</span><span class="marq-dot">✦</span><span>Handcrafted with Love</span><span class="marq-dot">✦</span><span>Personalised for Every Occasion</span><span class="marq-dot">✦</span><span>Weddings · Birthdays · Festivals</span><span class="marq-dot">✦</span><span>🌿 Natural Materials</span><span class="marq-dot">✦</span><span>Pan-India Delivery</span><span class="marq-dot">✦</span>
+      </div>
+    </div>
+
+    <section class="hero" style="animation:fadeUp .7s ease both">
+      <div>
+        <div class="hero-ey">✦ Handcrafted Gift Shop</div>
+        <h1 id="hero-h">Where every gift tells <em>your</em> story</h1>
+        <p class="hero-tag" id="hero-tag">Creative. Custom. Crafts.</p>
+        <p class="hero-sub" id="hero-sub">We create beautiful, personalised gifts — from hand-curated hampers to custom craft items — for weddings, birthdays, festivals, and every moment worth celebrating.</p>
+        <div class="hero-cta">
+          <button class="btn btn-p" onclick="showPage('gallery')">🎁 Explore our work</button>
+          <button class="btn btn-o" onclick="showPage('contact')">Order now →</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-num">500+</div><div class="hs-lbl">Happy Customers</div></div>
+          <div><div class="hs-num">100%</div><div class="hs-lbl">Handmade</div></div>
+          <div><div class="hs-num">5★</div><div class="hs-lbl">Avg. Rating</div></div>
+          <div><div class="hs-num">3 Days</div><div class="hs-lbl">Avg. Delivery</div></div>
+        </div>
+      </div>
+      <div class="hero-art" style="animation:fadeIn .8s .2s ease both">
+        <div class="hero-img-wrap">
+          <div class="ring1"></div><div class="ring2"></div>
+          <div class="logo-circle">
+            <img src="logo.jpg" alt="Vanshika Gifts" onerror="this.parentElement.innerHTML='🎁'">
+          </div>
+          <div class="hero-badge"><div class="hb-num">❤️</div><div class="hb-txt">Made with Love</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="feat-strip">
+      <div class="feat-inner">
+        <div class="fi"><div class="fi-icon">🎨</div><div class="fi-ttl">100% Custom</div><div class="fi-dsc">Every piece made just for you</div></div>
+        <div class="fi"><div class="fi-icon">🌿</div><div class="fi-ttl">Natural Materials</div><div class="fi-dsc">Sustainably sourced & made</div></div>
+        <div class="fi"><div class="fi-icon">💝</div><div class="fi-ttl">Made with Love</div><div class="fi-dsc">By skilled artisans</div></div>
+        <div class="fi"><div class="fi-icon">🚚</div><div class="fi-ttl">Pan-India Delivery</div><div class="fi-dsc">Safe & beautiful packaging</div></div>
+      </div>
+    </div>
+
+    <section class="sec">
+      <div class="sec-hdr">
+        <div><h2 style="color:var(--brown-d);margin-bottom:.3rem">Our Creations</h2><p style="margin:0">Browse by occasion</p></div>
+        <button class="btn btn-o btn-s" onclick="showPage('gallery')">View full gallery →</button>
+      </div>
+      <div class="fbar" id="home-fbar"></div>
+      <div class="pgrid" id="home-products"></div>
+    </section>
+
+    <section id="testi-sec" style="background:var(--cream-dark);padding:5rem 0;border-top:1px solid rgba(200,144,42,.15);border-bottom:1px solid rgba(200,144,42,.15)">
+      <div style="max-width:1180px;margin:0 auto;padding:0 5vw">
+        <h2 class="sec-title">What our customers say</h2>
+        <div class="leaf">🌿 ✦ 🌿</div>
+        <div class="tgrid" id="home-testi"></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="cta-band">
+        <div class="leaf" style="color:rgba(245,239,224,.3)">🌿 ✦ 🌿</div>
+        <h2>Have something special in mind?</h2>
+        <p>Every gift is made to order. Share your vision and we'll bring it to life.</p>
+        <button class="btn btn-a" onclick="showPage('contact')">Start your order →</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="pg-about" style="display:none">
+    <div class="page-hero" style="animation:fadeUp .6s ease both">
+      <h1>Our Story</h1>
+      <p>Born from a love of craft and a belief that every gift should feel truly personal.</p>
+      <div class="leaf" style="margin-top:1rem">🌿 ✦ 🌿</div>
+    </div>
+    <section class="sec">
+      <div class="about-grid">
+        <div class="aimg-wrap">
+          <div class="logo-big"><img src="logo.jpg" alt="Vanshika Gifts" onerror="this.parentElement.innerHTML='🎁'"></div>
+          <div class="aimg-badge">Crafting joy since<br><strong>2020</strong></div>
+        </div>
+        <div>
+          <h2 style="color:var(--brown-d);margin-bottom:1.2rem">Hello, we're <span id="ab-bname">Vanshika Gifts</span></h2>
+          <p style="font-size:1.02rem;line-height:1.85;margin-bottom:1rem">What started as a small passion project — wrapping heartfelt gifts for friends and family — grew into something much more beautiful. We were founded on the simple belief that a gift should be more than just an object.</p>
+          <p style="line-height:1.85;margin-bottom:1rem">Based in <span id="ab-city">Surendranagar, Gujarat</span>, we handcraft custom gifts for weddings, birthdays, festivals, baby showers, and corporate events. Every basket we weave, every hamper we curate is made with the recipient in mind.</p>
+          <div class="vgrid">
+            <div class="vcard"><h4>🌿 Natural & Sustainable</h4><p>We use natural materials — bamboo, dried botanicals, handmade paper.</p></div>
+            <div class="vcard"><h4>💝 Made to Order</h4><p>Nothing is mass-produced. Every gift is crafted fresh, especially for you.</p></div>
+            <div class="vcard"><h4>🎨 Fully Customisable</h4><p>Colours, themes, contents, messages — we personalise every detail.</p></div>
+            <div class="vcard"><h4>✦ Quality Guaranteed</h4><p>If you're not delighted, we'll make it right — always.</p></div>
+          </div>
+          <button class="btn btn-p" onclick="showPage('contact')">Get in touch</button>
+        </div>
+      </div>
+    </section>
+    <section class="sec" style="padding-top:0">
+      <h2 class="sec-title">How it works</h2>
+      <p class="sec-sub">Simple, personal, and joyful from start to finish.</p>
+      <div class="pgrid2">
+        <div class="step-card"><div class="snum">1</div><h4>Share Your Vision</h4><p>Tell us the occasion, budget, recipient & personal touches you'd like.</p></div>
+        <div class="step-card"><div class="snum">2</div><h4>We Design & Curate</h4><p>Our team crafts a bespoke design proposal tailored just for you.</p></div>
+        <div class="step-card"><div class="snum">3</div><h4>Handcraft & Pack</h4><p>We handcraft your gift with care, wrapping every detail beautifully.</p></div>
+        <div class="step-card"><div class="snum">4</div><h4>Deliver with Joy</h4><p>We deliver pan-India in safe, elegant packaging.</p></div>
+      </div>
+    </section>
+    <section class="sec"><div class="cta-band"><h2>Ready to create something special?</h2><p>From a single gift to 500 corporate hampers — we're here to help.</p><button class="btn btn-a" onclick="showPage('contact')">Start your order →</button></div></section>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="pg-gallery" style="display:none">
+    <div class="page-hero" style="animation:fadeUp .6s ease both">
+      <h1>Our Creations</h1>
+      <p>A peek into the gifts we've made — each one handcrafted, each one a story.</p>
+      <div class="leaf" style="margin-top:1rem">🌿 ✦ 🌿</div>
+    </div>
+    <section class="sec">
+      <div class="fbar" id="gal-fbar"></div>
+      <div class="ggrid" id="gal-grid"></div>
+    </section>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="pg-contact" style="display:none">
+    <div class="page-hero" style="animation:fadeUp .6s ease both">
+      <h1>Let's create together</h1>
+      <p>Fill in the form and we'll get back to you within 24 hours.</p>
+      <div class="leaf" style="margin-top:1rem">🌿 ✦ 🌿</div>
+    </div>
+    <section class="sec">
+      <div class="cgrid">
+        <div>
+          <h2 style="color:var(--brown-d);margin-bottom:1rem">Get in touch</h2>
+          <p style="margin-bottom:.5rem">Whether you need one perfect gift or 500 corporate hampers, we're here to help.</p>
+          <ul class="clist">
+            <li class="citem"><div class="cicon">📱</div><div><div class="clbl">WhatsApp / Phone</div><div class="cval" id="c-phone">+91 XXXXX XXXXX</div></div></li>
+            <li class="citem"><div class="cicon">📧</div><div><div class="clbl">Email</div><div class="cval" id="c-email">hello@vanshikagifts.com</div></div></li>
+            <li class="citem"><div class="cicon">📍</div><div><div class="clbl">Based in</div><div class="cval" id="c-city">Surendranagar, Gujarat</div></div></li>
+            <li class="citem"><div class="cicon">🕐</div><div><div class="clbl">Working Hours</div><div class="cval" id="c-hours">Mon – Sat, 9 am – 7 pm</div></div></li>
+          </ul>
+          <div class="avail"><span class="adot"></span> Currently accepting new orders</div>
+          <div class="srow">
+            <a class="spill" id="c-ig" href="#">📸 Instagram</a>
+            <a class="spill" id="c-wa" href="#">💬 WhatsApp</a>
+            <a class="spill" id="c-fb" href="#">👍 Facebook</a>
+          </div>
+          <div class="bulk-box"><h4>📦 Bulk & Corporate Orders</h4><p>Special pricing for bulk orders of 50+ gifts. Reach out to discuss!</p></div>
+        </div>
+        <div class="fcard">
+          <div id="contact-form-wrap">
+            <div class="frow">
+              <div class="fg"><label class="flbl">Your name *</label><input class="fin" id="cf-name" placeholder="Priya Sharma"></div>
+              <div class="fg"><label class="flbl">Phone / WhatsApp *</label><input class="fin" id="cf-phone" placeholder="+91 98765 43210"></div>
+            </div>
+            <div class="fg"><label class="flbl">Email</label><input class="fin" id="cf-email" type="email" placeholder="priya@email.com"></div>
+            <div class="frow">
+              <div class="fg"><label class="flbl">Occasion *</label>
+                <select class="fin" id="cf-occ">
+                  <option value="">— Select —</option>
+                  <option>Wedding/Shaadi</option><option>Birthday</option><option>Diwali</option><option>Rakhi</option><option>Baby Shower</option><option>Corporate/Bulk</option><option>Anniversary</option><option>Other</option>
+                </select>
+              </div>
+              <div class="fg"><label class="flbl">Budget per gift</label>
+                <select class="fin" id="cf-budget">
+                  <option value="">— Select —</option>
+                  <option>Under ₹500</option><option>₹500–₹1,000</option><option>₹1,000–₹2,500</option><option>₹2,500–₹5,000</option><option>₹5,000+</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg"><label class="flbl">Tell us your vision *</label><textarea class="fin" id="cf-msg" rows="4" placeholder="Describe the gift, theme, colours, delivery date..." style="resize:vertical"></textarea></div>
+            <button class="btn btn-p" style="width:100%;justify-content:center" onclick="submitContact()">Send my enquiry →</button>
+          </div>
+          <div id="contact-success" style="display:none" class="success-wrap">
+            <div class="suc-icon">✓</div>
+            <h3 style="color:var(--brown-d);margin-bottom:.5rem">Enquiry received!</h3>
+            <p id="cs-bname">Thank you for reaching out to Vanshika Gifts. We'll be in touch within 24 hours.</p>
+            <button class="btn btn-o btn-s" style="margin-top:1rem" onclick="resetContact()">Send another</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="fn" id="f-bname">Vanshika Gifts</div>
+      <div class="ft" id="f-btag">Creative · Custom · Crafts</div>
+      <p class="fd">Handcrafted gifts made with love for every occasion. Based in <span id="f-city">Surendranagar, Gujarat</span>.</p>
+      <div class="srow">
+        <a class="spill" id="f-ig" href="#">📸 Instagram</a>
+        <a class="spill" id="f-wa" href="#">💬 WhatsApp</a>
+        <a class="spill" id="f-fb" href="#">👍 Facebook</a>
+      </div>
+    </div>
+    <div>
+      <div class="fh">Quick Links</div>
+      <ul class="flinks">
+        <li><button onclick="showPage('home')">Home</button></li>
+        <li><button onclick="showPage('about')">About</button></li>
+        <li><button onclick="showPage('gallery')">Gallery</button></li>
+        <li><button onclick="showPage('contact')">Contact</button></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fh">Occasions</div>
+      <ul class="flinks">
+        <li><a href="#">Weddings</a></li><li><a href="#">Birthdays</a></li><li><a href="#">Festivals</a></li><li><a href="#">Corporate</a></li><li><a href="#">Baby Showers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2026 <span id="f-bname2">Vanshika Gifts</span> · All rights reserved</span>
+    <a id="f-email" href="#">hello@vanshikagifts.com</a>
+  </div>
+</footer>
+
+<!-- ADMIN OVERLAY -->
+<div class="ov" id="admin-ov" style="display:none" onclick="if(event.target===this)closeAdmin()">
+  <div class="amod" onclick="event.stopPropagation()">
+    <div class="amod-hdr">
+      <h2>⚙ Admin Panel</h2>
+      <button class="amod-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <!-- Login -->
+    <div id="admin-login" style="flex:1;overflow-y:auto">
+      <div class="login-wrap">
+        <div class="login-logo-fallback"><img src="logo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='🎁'"></div>
+        <h3>Admin Access</h3>
+        <p style="color:var(--muted);font-size:.9rem">Enter the admin password to manage your website content.</p>
+        <div class="login-form">
+          <div class="agroup"><label class="albl">Password</label><input class="ain" type="password" id="admin-pw" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+          <div class="err" id="pw-err" style="display:none">Incorrect password. Hint: vanshika2026</div>
+          <button class="btn btn-p" style="justify-content:center" onclick="doLogin()">Login →</button>
+        </div>
+      </div>
+    </div>
+    <!-- Panel -->
+    <div id="admin-panel" style="display:none;flex:1;overflow:hidden" class="amod-body">
+      <div class="aside">
+        <button class="anav on" id="an-dash" onclick="adminTab('dash')">📊 Dashboard</button>
+        <button class="anav" id="an-prod" onclick="adminTab('prod')">🎁 Products</button>
+        <button class="anav" id="an-testi" onclick="adminTab('testi')">⭐ Reviews</button>
+        <button class="anav" id="an-set" onclick="adminTab('set')">⚙ Settings</button>
+        <button class="anav anav-logout" onclick="adminLogout()">🚪 Log out</button>
+      </div>
+      <div class="acontent" id="admin-content"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" style="display:none"></div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────
+var products=[
+  {id:1,name:"Golden Harvest Hamper",cat:"hamper",emoji:"🧺",bg:"linear-gradient(135deg,#F5EFE0,#E8B050)",desc:"Bamboo basket with premium dry fruits, artisan chocolates & personalised card.",price:"₹999",badge:"hot",active:true},
+  {id:2,name:"Bridal Welcome Kit",cat:"wedding",emoji:"💍",bg:"linear-gradient(135deg,#F5F0E0,#D4BFA0)",desc:"Luxurious personalised bridal set with custom initials, colours & floral accents.",price:"₹1,499",badge:"",active:true},
+  {id:3,name:"Diwali Delight Box",cat:"festival",emoji:"🪔",bg:"linear-gradient(135deg,#F5E8D0,#C8902A)",desc:"Diyas, sweets, dry fruits & festive crafts in a beautifully decorated box.",price:"₹849",badge:"new",active:true},
+  {id:4,name:"Dried Floral Frame",cat:"floral",emoji:"💐",bg:"linear-gradient(135deg,#F0E0F5,#BFA8D4)",desc:"Preserved seasonal blooms arranged in a handmade wooden frame.",price:"₹749",badge:"",active:true},
+  {id:5,name:"Surprise Birthday Box",cat:"birthday",emoji:"🎂",bg:"linear-gradient(135deg,#E0F0F5,#8BA8C8)",desc:"Cheerful personalised gift box with sweets, small crafts & a handwritten note.",price:"₹649",badge:"",active:true},
+  {id:6,name:"Organic Wellness Hamper",cat:"hamper",emoji:"🌿",bg:"linear-gradient(135deg,#E0F5E8,#8BAF8D)",desc:"Herbal teas, essential oils & natural self-care products in an elegant tray.",price:"₹1,199",badge:"new",active:true},
+];
+var testimonials=[
+  {id:1,text:"Ordered a custom hamper for my best friend's wedding — it was absolutely stunning. Everyone kept asking where it was from!",author:"Priya M.",loc:"Ahmedabad",rating:5,active:true},
+  {id:2,text:"The Diwali gift boxes were a huge hit with my entire team. The packaging was beautiful and the personalised touches made everyone feel special.",author:"Rohan K.",loc:"Surat",rating:5,active:true},
+  {id:3,text:"Vanshika Gifts truly goes above and beyond. Quick turnaround, excellent quality, and the most thoughtful presentation I've ever seen!",author:"Sneha P.",loc:"Mumbai",rating:5,active:true},
+];
+var settings={
+  businessName:"Vanshika Gifts",tagline:"Creative. Custom. Crafts.",
+  phone:"+91 XXXXX XXXXX",email:"hello@vanshikagifts.com",
+  city:"Surendranagar, Gujarat",hours:"Mon – Sat, 9 am – 7 pm",
+  heroH:"Where every gift tells your story",
+  heroSub:"We create beautiful, personalised gifts — from hand-curated hampers to custom craft items — for weddings, birthdays, festivals, and every moment worth celebrating.",
+  instagram:"#",facebook:"#",whatsapp:"#"
+};
+var COLORS=["linear-gradient(135deg,#F5EFE0,#E8B050)","linear-gradient(135deg,#F5F0E0,#D4BFA0)","linear-gradient(135deg,#F5E8D0,#C8902A)","linear-gradient(135deg,#F0E0F5,#BFA8D4)","linear-gradient(135deg,#E0F0F5,#8BA8C8)","linear-gradient(135deg,#E0F5E8,#8BAF8D)","linear-gradient(135deg,#F5E0E8,#D4A5B0)","linear-gradient(135deg,#F5F0D8,#C8A832)"];
+var CATS=[{k:"all",e:"✦",l:"All"},{k:"hamper",e:"🧺",l:"Hampers"},{k:"wedding",e:"💍",l:"Wedding"},{k:"festival",e:"🪔",l:"Festival"},{k:"floral",e:"💐",l:"Floral"},{k:"birthday",e:"🎂",l:"Birthday"},{k:"corporate",e:"💼",l:"Corporate"}];
+var currentPage="home", homeCatFilter="all", galFilter="all";
+var adminAuthed=false, adminCurrentTab="dash";
+var editingProd=null, editingTesti=null;
+
+// ── NAV & SCROLL ──────────────────────────────────────────
+window.addEventListener("scroll",function(){
+  document.getElementById("nav").classList.toggle("sc",scrollY>20);
+});
+
+function showPage(p){
+  ["home","about","gallery","contact"].forEach(function(x){
+    document.getElementById("pg-"+x).style.display=x===p?"block":"none";
+    var el=document.getElementById("nl-"+x);
+    if(el)el.classList.toggle("on",x===p);
+  });
+  currentPage=p;
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(p==="home"){renderHomeProducts();renderHomeTesti();}
+  if(p==="gallery"){renderGallery();}
+}
+function toggleMob(){document.getElementById("mob-menu").classList.toggle("open");}
+function closeMob(){document.getElementById("mob-menu").classList.remove("open");}
+
+// ── RENDER HOME PRODUCTS ──────────────────────────────────
+function tagPill(cat){
+  var map={hamper:"tp-hamper",wedding:"tp-wedding",festival:"tp-festival",floral:"tp-floral",birthday:"tp-birthday",corporate:"tp-corporate"};
+  return '<span class="tag-pill '+(map[cat]||"")+'">'+cat.charAt(0).toUpperCase()+cat.slice(1)+'</span>';
+}
+function badgeHtml(b){
+  if(!b)return"";
+  var cls=b==="hot"?"pb-hot":b==="new"?"pb-new":"pb-sale";
+  return'<span class="pbadge '+cls+'">'+b+'</span>';
+}
+
+function renderHomeProducts(){
+  var ap=products.filter(function(p){return p.active;});
+  // filter bar
+  var cats=["all"].concat([...new Set(ap.map(function(p){return p.cat;}))]);
+  var fb=document.getElementById("home-fbar");
+  fb.innerHTML=cats.map(function(c){
+    var inf=CATS.find(function(x){return x.k===c;})||{e:"✦",l:c.charAt(0).toUpperCase()+c.slice(1)};
+    return'<button class="fbtn'+(homeCatFilter===c?" on":"")+('" onclick="setHomeCat(\''+c+'\')">')+inf.e+" "+inf.l+"</button>";
+  }).join("");
+  var filtered=homeCatFilter==="all"?ap:ap.filter(function(p){return p.cat===homeCatFilter;});
+  var el=document.getElementById("home-products");
+  if(!filtered.length){el.innerHTML='<div class="empty"><div class="empty-i">🎁</div><p>No products in this category yet.</p></div>';return;}
+  el.innerHTML=filtered.slice(0,6).map(function(p,i){
+    return'<div class="pcard" style="animation:fadeUp .5s '+(i*.08)+'s ease both" onclick="showPage(\'contact\')">'
+      +'<div class="pthumb" style="background:'+p.bg+'">'+p.emoji+badgeHtml(p.badge)+'</div>'
+      +'<div class="pbody"><span class="ptag">'+p.cat+'</span>'
+      +'<div class="pname">'+esc(p.name)+'</div>'
+      +'<p class="pdesc">'+esc(p.desc)+'</p>'
+      +'<div class="pftr"><span class="pprice">Starting '+esc(p.price)+'</span><span class="pcta">Order now →</span></div>'
+      +'</div></div>';
+  }).join("");
+}
+function setHomeCat(c){homeCatFilter=c;renderHomeProducts();}
+
+function renderHomeTesti(){
+  var at=testimonials.filter(function(t){return t.active;});
+  var el=document.getElementById("home-testi");
+  var ts=document.getElementById("testi-sec");
+  if(!at.length){ts.style.display="none";return;}
+  ts.style.display="block";
+  el.innerHTML=at.map(function(t,i){
+    return'<div class="tcard" style="animation:fadeUp .5s '+(i*.1)+'s ease both">'
+      +'<div class="tq">\u201C</div>'
+      +'<div class="tstars">'+"★".repeat(t.rating)+"☆".repeat(5-t.rating)+'</div>'
+      +'<p class="ttext">&#8220;'+esc(t.text)+'&#8221;</p>'
+      +'<div class="tauthor">'+esc(t.author)+'</div>'
+      +'<div class="tloc">'+esc(t.loc)+'</div>'
+      +'</div>';
+  }).join("");
+}
+
+// ── GALLERY ───────────────────────────────────────────────
+function renderGallery(){
+  var ap=products.filter(function(p){return p.active;});
+  var cats=["all"].concat([...new Set(ap.map(function(p){return p.cat;}))]);
+  var fb=document.getElementById("gal-fbar");
+  fb.innerHTML=cats.map(function(c){
+    var inf=CATS.find(function(x){return x.k===c;})||{e:"✦",l:c.charAt(0).toUpperCase()+c.slice(1)};
+    return'<button class="fbtn'+(galFilter===c?" on":"")+('" onclick="setGalFilter(\''+c+'\')">')+inf.e+" "+inf.l+"</button>";
+  }).join("");
+  var filtered=galFilter==="all"?ap:ap.filter(function(p){return p.cat===galFilter;});
+  var el=document.getElementById("gal-grid");
+  if(!filtered.length){el.innerHTML='<div class="empty"><div class="empty-i">🎁</div><p>No items in this category yet.</p></div>';return;}
+  el.innerHTML=filtered.map(function(p,i){
+    return'<div class="gcard" style="animation:fadeUp .5s '+(i*.07)+'s ease both">'
+      +'<div class="gthumb" style="background:'+p.bg+'">'+p.emoji+'</div>'
+      +'<div class="gbody">'
+      +'<div class="gmeta">'+tagPill(p.cat)+'<span class="gyear">2025</span></div>'
+      +'<div class="gname">'+esc(p.name)+'</div>'
+      +'<p class="gdesc">'+esc(p.desc)+'</p>'
+      +'<div class="gprice">Starting '+esc(p.price)+'</div>'
+      +'</div></div>';
+  }).join("");
+}
+function setGalFilter(c){galFilter=c;renderGallery();}
+
+// ── CONTACT ───────────────────────────────────────────────
+function submitContact(){
+  var n=document.getElementById("cf-name").value.trim();
+  var ph=document.getElementById("cf-phone").value.trim();
+  var oc=document.getElementById("cf-occ").value;
+  var msg=document.getElementById("cf-msg").value.trim();
+  if(!n||!ph||!oc||!msg){showToast("Please fill all required fields.");return;}
+  document.getElementById("contact-form-wrap").style.display="none";
+  document.getElementById("contact-success").style.display="block";
+  document.getElementById("cs-bname").textContent="Thank you for reaching out to "+settings.businessName+". We'll be in touch within 24 hours.";
+}
+function resetContact(){
+  document.getElementById("contact-form-wrap").style.display="block";
+  document.getElementById("contact-success").style.display="none";
+  ["cf-name","cf-phone","cf-email","cf-msg"].forEach(function(id){document.getElementById(id).value="";});
+  document.getElementById("cf-occ").value="";
+  document.getElementById("cf-budget").value="";
+}
+
+// ── APPLY SETTINGS to DOM ─────────────────────────────────
+function applySettings(){
+  var s=settings;
+  document.title=s.businessName+" — "+s.tagline;
+  setTxt("nav-bname",s.businessName);setTxt("nav-btag",s.tagline.replace(/\./g," · "));
+  setTxt("hero-h","Where every gift tells ");
+  document.getElementById("hero-h").innerHTML='Where every gift tells <em>your</em> story';
+  setTxt("hero-tag",s.tagline);
+  setTxt("hero-sub",s.heroSub);
+  setTxt("ab-bname",s.businessName);setTxt("ab-city",s.city);
+  setTxt("c-phone",s.phone);setTxt("c-email",s.email);setTxt("c-city",s.city);setTxt("c-hours",s.hours);
+  setTxt("f-bname",s.businessName);setTxt("f-btag",s.tagline);setTxt("f-city",s.city);setTxt("f-bname2",s.businessName);
+  ["ig","wa","fb"].forEach(function(k){
+    var href=k==="ig"?s.instagram:k==="wa"?s.whatsapp:s.facebook;
+    setHref("c-"+k,href);setHref("f-"+k,href);
+  });
+  setHref("f-email","mailto:"+s.email);
+  setTxt("f-email",s.email);
+}
+function setTxt(id,val){var el=document.getElementById(id);if(el)el.textContent=val;}
+function setHref(id,val){var el=document.getElementById(id);if(el)el.href=val;}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+// ── TOAST ─────────────────────────────────────────────────
+var toastTimer=null;
+function showToast(msg){
+  var t=document.getElementById("toast");
+  t.textContent=msg;t.style.display="block";
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){t.style.display="none";},2500);
+}
+
+// ── ADMIN ─────────────────────────────────────────────────
+function openAdmin(){document.getElementById("admin-ov").style.display="flex";}
+function closeAdmin(){document.getElementById("admin-ov").style.display="none";}
+function doLogin(){
+  var pw=document.getElementById("admin-pw").value;
+  if(pw==="vanshika2026"){
+    document.getElementById("admin-login").style.display="none";
+    document.getElementById("admin-panel").style.display="contents";
+    adminAuthed=true;
+    adminTab("dash");
+  }else{
+    document.getElementById("pw-err").style.display="block";
+  }
+}
+function adminLogout(){
+  adminAuthed=false;
+  document.getElementById("admin-panel").style.display="none";
+  document.getElementById("admin-login").style.display="block";
+  document.getElementById("admin-pw").value="";
+  document.getElementById("pw-err").style.display="none";
+}
+function adminTab(t){
+  adminCurrentTab=t;
+  ["dash","prod","testi","set"].forEach(function(x){
+    var el=document.getElementById("an-"+x);
+    if(el)el.classList.toggle("on",x===t);
+  });
+  var c=document.getElementById("admin-content");
+  if(t==="dash")c.innerHTML=renderDash();
+  if(t==="prod"){c.innerHTML=renderProdTab();bindProdForm();}
+  if(t==="testi"){c.innerHTML=renderTestiTab();bindTestiForm();}
+  if(t==="set"){c.innerHTML=renderSetTab();bindSetForm();}
+}
+
+// DASH
+function renderDash(){
+  var ap=products.filter(function(p){return p.active;}).length;
+  var at=testimonials.filter(function(t){return t.active;}).length;
+  var cats=[...new Set(products.map(function(p){return p.cat;}))];
+  var rows=cats.map(function(c){
+    return'<div style="display:flex;justify-content:space-between;padding:.45rem 0;border-bottom:1px solid rgba(200,144,42,.15);align-items:center">'
+      +tagPill(c)+'<span style="font-size:.85rem;font-weight:700;color:var(--brown)">'+products.filter(function(p){return p.cat===c&&p.active;}).length+' items</span></div>';
+  }).join("");
+  return'<div class="asec-title">Dashboard Overview</div>'
+    +'<div class="astats">'
+    +'<div class="astat"><div class="astat-n">'+ap+'</div><div class="astat-l">Active Products</div></div>'
+    +'<div class="astat"><div class="astat-n">'+at+'</div><div class="astat-l">Live Reviews</div></div>'
+    +'<div class="astat"><div class="astat-n">'+cats.length+'</div><div class="astat-l">Categories</div></div>'
+    +'<div class="astat"><div class="astat-n">500+</div><div class="astat-l">Customers</div></div>'
+    +'</div>'
+    +'<div style="background:var(--cream-dark);border-radius:var(--r2);padding:1.4rem;margin-bottom:1.3rem"><h4 style="font-family:Playfair Display,serif;color:var(--brown-d);margin-bottom:.8rem;font-size:1rem">Category Breakdown</h4>'+rows+'</div>'
+    +'<div style="background:rgba(74,103,65,.08);border-radius:var(--r2);padding:1.1rem;border-left:3px solid var(--olive)"><p style="color:var(--olive);font-size:.88rem;margin:0;font-weight:600">💡 Tip: Use the tabs above to add, edit or hide products and reviews. All changes appear live instantly.</p></div>';
+}
+
+// PRODUCTS TAB
+function renderProdTab(){
+  var colBtns=COLORS.map(function(c,i){return'<div class="cbtn" id="cbtn-'+i+'" style="background:'+c+'" onclick="selectColor(\''+c+'\','+i+')"></div>';}).join("");
+  var rows=products.map(function(p){
+    return'<tr>'
+      +'<td><span style="font-size:1.3rem">'+p.emoji+'</span> <strong style="color:var(--brown-d)">'+esc(p.name)+'</strong></td>'
+      +'<td>'+tagPill(p.cat)+'</td>'
+      +'<td style="font-weight:700;color:var(--amber-d)">'+esc(p.price)+'</td>'
+      +'<td><button class="toggle-btn '+(p.active?"tg-on":"tg-off")+'" onclick="toggleProd('+p.id+')">'+(p.active?"● Live":"○ Hidden")+'</button></td>'
+      +'<td><div class="acts">'
+      +'<button class="btn btn-s" style="background:var(--cream-dark);color:var(--brown)" onclick="editProd('+p.id+')">✏ Edit</button>'
+      +'<button class="btn btn-s btn-d" onclick="delProd('+p.id+')">🗑</button>'
+      +'</div></td>'
+      +'</tr>';
+  }).join("");
+  return'<div class="asec-title" id="prod-form-title">Add New Product</div>'
+    +'<div class="acard">'
+    +'<div class="aform">'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Product Name *</label><input class="ain" id="p-name" placeholder="e.g. Golden Harvest Hamper"></div>'
+    +'<div class="agroup"><label class="albl">Category</label><select class="ain" id="p-cat">'
+    +['hamper','wedding','festival','floral','birthday','corporate'].map(function(c){return'<option value="'+c+'">'+c.charAt(0).toUpperCase()+c.slice(1)+'</option>';}).join("")
+    +'</select></div>'
+    +'</div>'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Emoji Icon</label><input class="ain" id="p-emoji" placeholder="🧺"></div>'
+    +'<div class="agroup"><label class="albl">Starting Price</label><input class="ain" id="p-price" placeholder="₹999"></div>'
+    +'</div>'
+    +'<div class="agroup"><label class="albl">Description *</label><textarea class="ain" id="p-desc" rows="2" placeholder="Brief description..." style="resize:vertical"></textarea></div>'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Badge</label><select class="ain" id="p-badge"><option value="">None</option><option value="hot">🔥 Hot</option><option value="new">✨ New</option><option value="sale">🏷 Sale</option></select></div>'
+    +'<div class="agroup"><label class="albl">Card Background</label><div class="cbtn-grid" id="cbtn-grid">'+colBtns+'</div></div>'
+    +'</div>'
+    +'<input type="hidden" id="p-bg" value="'+COLORS[0]+'">'
+    +'<div style="display:flex;gap:.7rem;flex-wrap:wrap">'
+    +'<button class="btn btn-p btn-s" id="prod-save-btn" onclick="saveProd()">Add Product</button>'
+    +'<button class="btn btn-s" id="prod-cancel-btn" style="display:none;background:var(--cream-dark);color:var(--muted)" onclick="cancelProdEdit()">Cancel</button>'
+    +'</div>'
+    +'</div>'
+    +'</div>'
+    +'<div class="asec-title" style="margin-top:1.2rem">All Products ('+products.length+')</div>'
+    +(products.length?'<table class="atable"><thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead><tbody>'+rows+'</tbody></table>'
+    :'<div class="empty"><div class="empty-i">🎁</div><p>No products yet. Add one above!</p></div>');
+}
+function bindProdForm(){selectColor(COLORS[0],0);}
+
+var selectedBg=COLORS[0];
+function selectColor(bg,idx){
+  selectedBg=bg;
+  document.getElementById("p-bg").value=bg;
+  document.querySelectorAll(".cbtn").forEach(function(b,i){b.classList.toggle("sel",i===idx);});
+}
+function saveProd(){
+  var name=document.getElementById("p-name").value.trim();
+  var desc=document.getElementById("p-desc").value.trim();
+  var price=document.getElementById("p-price").value.trim();
+  var cat=document.getElementById("p-cat").value;
+  var emoji=document.getElementById("p-emoji").value.trim()||"🎁";
+  var badge=document.getElementById("p-badge").value;
+  var bg=document.getElementById("p-bg").value||COLORS[0];
+  if(!name||!desc||!price){showToast("Please fill Name, Description & Price.");return;}
+  if(editingProd!==null){
+    products=products.map(function(p){return p.id===editingProd?{id:editingProd,name:name,cat:cat,emoji:emoji,bg:bg,desc:desc,price:price,badge:badge,active:p.active}:p;});
+    editingProd=null;showToast("Product updated!");
+  }else{
+    products.push({id:Date.now(),name:name,cat:cat,emoji:emoji,bg:bg,desc:desc,price:price,badge:badge,active:true});
+    showToast("Product added!");
+  }
+  if(currentPage==="home")renderHomeProducts();
+  if(currentPage==="gallery")renderGallery();
+  adminTab("prod");
+}
+function editProd(id){
+  var p=products.find(function(x){return x.id===id;});
+  if(!p)return;
+  editingProd=id;
+  document.getElementById("p-name").value=p.name;
+  document.getElementById("p-cat").value=p.cat;
+  document.getElementById("p-emoji").value=p.emoji;
+  document.getElementById("p-price").value=p.price;
+  document.getElementById("p-desc").value=p.desc;
+  document.getElementById("p-badge").value=p.badge||"";
+  var idx=COLORS.indexOf(p.bg); if(idx<0)idx=0;
+  selectColor(p.bg,idx);
+  document.getElementById("prod-form-title").textContent="Edit Product";
+  document.getElementById("prod-save-btn").textContent="Update Product";
+  document.getElementById("prod-cancel-btn").style.display="inline-flex";
+  document.getElementById("acontent")||document.querySelector(".acontent").scrollTo({top:0,behavior:"smooth"});
+  document.querySelector(".acontent").scrollTo({top:0,behavior:"smooth"});
+}
+function cancelProdEdit(){editingProd=null;adminTab("prod");}
+function delProd(id){if(!confirm("Delete this product?"))return;products=products.filter(function(p){return p.id!==id;});if(currentPage==="home")renderHomeProducts();if(currentPage==="gallery")renderGallery();showToast("Product deleted.");adminTab("prod");}
+function toggleProd(id){products=products.map(function(p){return p.id===id?Object.assign({},p,{active:!p.active}):p;});if(currentPage==="home")renderHomeProducts();if(currentPage==="gallery")renderGallery();adminTab("prod");}
+
+// TESTIMONIALS TAB
+function renderTestiTab(){
+  var rows=testimonials.map(function(t){
+    return'<tr>'
+      +'<td style="max-width:200px"><p style="margin:0;font-size:.82rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">&#8220;'+esc(t.text.substring(0,60))+'...&#8221;</p></td>'
+      +'<td><strong style="color:var(--brown-d)">'+esc(t.author)+'</strong><br><span style="font-size:.73rem;color:var(--muted)">'+esc(t.loc)+'</span></td>'
+      +'<td style="color:var(--amber);letter-spacing:1px">'+"★".repeat(t.rating)+'</td>'
+      +'<td><button class="toggle-btn '+(t.active?"tg-on":"tg-off")+'" onclick="toggleTesti('+t.id+')">'+(t.active?"● Live":"○ Hidden")+'</button></td>'
+      +'<td><div class="acts">'
+      +'<button class="btn btn-s" style="background:var(--cream-dark);color:var(--brown)" onclick="editTesti('+t.id+')">✏ Edit</button>'
+      +'<button class="btn btn-s btn-d" onclick="delTesti('+t.id+')">🗑</button>'
+      +'</div></td></tr>';
+  }).join("");
+  return'<div class="asec-title" id="testi-form-title">Add New Review</div>'
+    +'<div class="acard"><div class="aform">'
+    +'<div class="agroup"><label class="albl">Review Text *</label><textarea class="ain" id="t-text" rows="3" placeholder="Customer\'s review..." style="resize:vertical"></textarea></div>'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Customer Name *</label><input class="ain" id="t-author" placeholder="Priya M."></div>'
+    +'<div class="agroup"><label class="albl">Location</label><input class="ain" id="t-loc" placeholder="Ahmedabad"></div>'
+    +'</div>'
+    +'<div class="agroup"><label class="albl">Rating</label><select class="ain" id="t-rating">'
+    +[5,4,3,2,1].map(function(r){return'<option value="'+r+'">'+"★".repeat(r)+' ('+r+' stars)</option>';}).join("")
+    +'</select></div>'
+    +'<div style="display:flex;gap:.7rem;flex-wrap:wrap">'
+    +'<button class="btn btn-p btn-s" id="testi-save-btn" onclick="saveTesti()">Add Review</button>'
+    +'<button class="btn btn-s" id="testi-cancel-btn" style="display:none;background:var(--cream-dark);color:var(--muted)" onclick="cancelTestiEdit()">Cancel</button>'
+    +'</div></div></div>'
+    +'<div class="asec-title" style="margin-top:1.2rem">All Reviews ('+testimonials.length+')</div>'
+    +(testimonials.length?'<table class="atable"><thead><tr><th>Review</th><th>Author</th><th>Rating</th><th>Status</th><th>Actions</th></tr></thead><tbody>'+rows+'</tbody></table>'
+    :'<div class="empty"><div class="empty-i">⭐</div><p>No reviews yet. Add one above!</p></div>');
+}
+function bindTestiForm(){}
+function saveTesti(){
+  var text=document.getElementById("t-text").value.trim();
+  var author=document.getElementById("t-author").value.trim();
+  var loc=document.getElementById("t-loc").value.trim();
+  var rating=parseInt(document.getElementById("t-rating").value);
+  if(!text||!author){showToast("Please fill Review Text & Name.");return;}
+  if(editingTesti!==null){
+    testimonials=testimonials.map(function(t){return t.id===editingTesti?{id:editingTesti,text:text,author:author,loc:loc,rating:rating,active:t.active}:t;});
+    editingTesti=null;showToast("Review updated!");
+  }else{
+    testimonials.push({id:Date.now(),text:text,author:author,loc:loc,rating:rating,active:true});
+    showToast("Review added!");
+  }
+  if(currentPage==="home")renderHomeTesti();
+  adminTab("testi");
+}
+function editTesti(id){
+  var t=testimonials.find(function(x){return x.id===id;});if(!t)return;
+  editingTesti=id;
+  document.getElementById("t-text").value=t.text;
+  document.getElementById("t-author").value=t.author;
+  document.getElementById("t-loc").value=t.loc;
+  document.getElementById("t-rating").value=t.rating;
+  document.getElementById("testi-form-title").textContent="Edit Review";
+  document.getElementById("testi-save-btn").textContent="Update Review";
+  document.getElementById("testi-cancel-btn").style.display="inline-flex";
+  document.querySelector(".acontent").scrollTo({top:0,behavior:"smooth"});
+}
+function cancelTestiEdit(){editingTesti=null;adminTab("testi");}
+function delTesti(id){if(!confirm("Delete this review?"))return;testimonials=testimonials.filter(function(t){return t.id!==id;});if(currentPage==="home")renderHomeTesti();showToast("Review deleted.");adminTab("testi");}
+function toggleTesti(id){testimonials=testimonials.map(function(t){return t.id===id?Object.assign({},t,{active:!t.active}):t;});if(currentPage==="home")renderHomeTesti();adminTab("testi");}
+
+// SETTINGS TAB
+function renderSetTab(){
+  return'<div class="asec-title">Business Settings</div>'
+    +'<div class="acard"><div class="acard-title">🏪 Business Info</div><div class="aform">'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Business Name</label><input class="ain" id="s-bname" value="'+esc(settings.businessName)+'"></div>'
+    +'<div class="agroup"><label class="albl">Tagline</label><input class="ain" id="s-tag" value="'+esc(settings.tagline)+'"></div>'
+    +'</div><div class="agrid">'
+    +'<div class="agroup"><label class="albl">Phone / WhatsApp</label><input class="ain" id="s-phone" value="'+esc(settings.phone)+'"></div>'
+    +'<div class="agroup"><label class="albl">Email</label><input class="ain" id="s-email" value="'+esc(settings.email)+'"></div>'
+    +'</div><div class="agrid">'
+    +'<div class="agroup"><label class="albl">City / Location</label><input class="ain" id="s-city" value="'+esc(settings.city)+'"></div>'
+    +'<div class="agroup"><label class="albl">Working Hours</label><input class="ain" id="s-hours" value="'+esc(settings.hours)+'"></div>'
+    +'</div></div></div>'
+    +'<div class="acard"><div class="acard-title">🏠 Homepage Content</div><div class="aform">'
+    +'<div class="agroup"><label class="albl">Hero Heading</label><input class="ain" id="s-heroh" value="'+esc(settings.heroH)+'"></div>'
+    +'<div class="agroup"><label class="albl">Hero Subtitle</label><textarea class="ain" id="s-herosub" rows="3" style="resize:vertical">'+esc(settings.heroSub)+'</textarea></div>'
+    +'</div></div>'
+    +'<div class="acard"><div class="acard-title">🔗 Social Links</div><div class="aform">'
+    +'<div class="agrid">'
+    +'<div class="agroup"><label class="albl">Instagram URL</label><input class="ain" id="s-ig" value="'+esc(settings.instagram)+'"></div>'
+    +'<div class="agroup"><label class="albl">WhatsApp Link</label><input class="ain" id="s-wa" value="'+esc(settings.whatsapp)+'"></div>'
+    +'</div>'
+    +'<div class="agroup"><label class="albl">Facebook URL</label><input class="ain" id="s-fb" value="'+esc(settings.facebook)+'"></div>'
+    +'</div></div>'
+    +'<button class="btn btn-p" style="width:100%;justify-content:center" onclick="saveSettings()">💾 Save all settings</button>';
+}
+function bindSetForm(){}
+function saveSettings(){
+  settings.businessName=document.getElementById("s-bname").value.trim()||settings.businessName;
+  settings.tagline=document.getElementById("s-tag").value.trim()||settings.tagline;
+  settings.phone=document.getElementById("s-phone").value.trim();
+  settings.email=document.getElementById("s-email").value.trim();
+  settings.city=document.getElementById("s-city").value.trim();
+  settings.hours=document.getElementById("s-hours").value.trim();
+  settings.heroH=document.getElementById("s-heroh").value.trim();
+  settings.heroSub=document.getElementById("s-herosub").value.trim();
+  settings.instagram=document.getElementById("s-ig").value.trim()||"#";
+  settings.whatsapp=document.getElementById("s-wa").value.trim()||"#";
+  settings.facebook=document.getElementById("s-fb").value.trim()||"#";
+  applySettings();
+  showToast("Settings saved!");
+}
+
+// ── INIT ──────────────────────────────────────────────────
+applySettings();
+renderHomeProducts();
+renderHomeTesti();
+</script>
+</body>
+</html>
