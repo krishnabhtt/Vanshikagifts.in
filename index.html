@@ -609,7 +609,7 @@ var settings={
   city:"Surendranagar, Gujarat",hours:"Mon – Sat, 9 am – 7 pm",
   heroH:"Where every gift tells your story",
   heroSub:"We create beautiful, personalised gifts — from hand-curated hampers to custom craft items — for weddings, birthdays, festivals, and every moment worth celebrating.",
-  instagram:"#",facebook:"#",whatsapp:"#"
+  instagram:"https://www.instagram.com/vanshika_gifts/",facebook:"#",whatsapp:"https://wa.me/919725956361"
 };
 var COLORS=["linear-gradient(135deg,#F5EFE0,#E8B050)","linear-gradient(135deg,#F5F0E0,#D4BFA0)","linear-gradient(135deg,#F5E8D0,#C8902A)","linear-gradient(135deg,#F0E0F5,#BFA8D4)","linear-gradient(135deg,#E0F0F5,#8BA8C8)","linear-gradient(135deg,#E0F5E8,#8BAF8D)","linear-gradient(135deg,#F5E0E8,#D4A5B0)","linear-gradient(135deg,#F5F0D8,#C8A832)"];
 var CATS=[{k:"all",e:"✦",l:"All"},{k:"hamper",e:"🧺",l:"Hampers"},{k:"wedding",e:"💍",l:"Wedding"},{k:"festival",e:"🪔",l:"Festival"},{k:"floral",e:"💐",l:"Floral"},{k:"birthday",e:"🎂",l:"Birthday"},{k:"corporate",e:"💼",l:"Corporate"}];
@@ -1020,7 +1020,52 @@ function saveSettings(){
   showToast("Settings saved!");
 }
 
+// ── LOCALSTORAGE PERSIST ──────────────────────────────────
+var LS_KEYS={products:"vg_products",testimonials:"vg_testimonials",settings:"vg_settings"};
+
+function saveAll(){
+  try{
+    localStorage.setItem(LS_KEYS.products,JSON.stringify(products));
+    localStorage.setItem(LS_KEYS.testimonials,JSON.stringify(testimonials));
+    localStorage.setItem(LS_KEYS.settings,JSON.stringify(settings));
+  }catch(e){}
+}
+
+function loadAll(){
+  try{
+    var p=localStorage.getItem(LS_KEYS.products);
+    if(p)products=JSON.parse(p);
+    var t=localStorage.getItem(LS_KEYS.testimonials);
+    if(t)testimonials=JSON.parse(t);
+    var s=localStorage.getItem(LS_KEYS.settings);
+    if(s){
+      var saved=JSON.parse(s);
+      // Always use hardcoded social links, ignore old cached # values
+      saved.instagram="https://www.instagram.com/vanshika_gifts/";
+      saved.whatsapp="https://wa.me/919725956361";
+      settings=Object.assign({},settings,saved);
+    }
+  }catch(e){}
+}
+
+// Patch all save/mutate functions to also persist
+var _saveProd=saveProd;
+saveProd=function(){_saveProd();saveAll();};
+var _delProd=delProd;
+delProd=function(id){_delProd(id);saveAll();};
+var _toggleProd=toggleProd;
+toggleProd=function(id){_toggleProd(id);saveAll();};
+var _saveTesti=saveTesti;
+saveTesti=function(){_saveTesti();saveAll();};
+var _delTesti=delTesti;
+delTesti=function(id){_delTesti(id);saveAll();};
+var _toggleTesti=toggleTesti;
+toggleTesti=function(id){_toggleTesti(id);saveAll();};
+var _saveSettings=saveSettings;
+saveSettings=function(){_saveSettings();saveAll();};
+
 // ── INIT ──────────────────────────────────────────────────
+loadAll();
 applySettings();
 renderHomeProducts();
 renderHomeTesti();
